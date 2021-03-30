@@ -4,6 +4,6 @@ export interface Contacts {
 
     id: number;
     contact_name: string;
-    contact_user: Users[];
-
+    contact_number: string;
+    user: Users[];
 }

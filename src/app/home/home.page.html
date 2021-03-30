@@ -1,20 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      IChat
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="home-container">
+    <div class="home-content">
+      <div class="home-wrapper">
+        <!--Essa tag só aparecerá caso não existam contatos adicionados-->
+        <div *ngIf="!contacts" class="empty-contacts">
+          <img class="empty-img" src="../../assets/empty_contacts.svg">
+          <h3>Você ainda não possui contatos!</h3>
+          <button class="btn-add-contact">Adicionar contato</button>
+        </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <!--Quando tiver contatos cadastrados eles apareceram aqui-->
+        <div class="contact-card" *ngFor="let contact of contacts">
+          <div class="contact-profile"></div>
+          <h3>{{contact.username}}</h3>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>

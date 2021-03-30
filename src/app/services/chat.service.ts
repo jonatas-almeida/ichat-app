@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Contacts } from '../interfaces/Contacts';
-import { Favorites } from '../interfaces/favorites';
+import { Favorites } from '../interfaces/Favorites';
 import { Messages } from '../interfaces/Messages';
 
 @Injectable({
