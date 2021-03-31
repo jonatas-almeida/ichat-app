@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'message/:id',
+    loadChildren: () => import('./message/message.module').then( m => m.MessagePageModule)
+  },
+  {
+    path: 'modal-add',
+    loadChildren: () => import('./components/modal-add/modal-add.module').then( m => m.ModalAddPageModule)
+  },
 ];
 
 @NgModule({

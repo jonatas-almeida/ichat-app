@@ -11,11 +11,11 @@
   <div id="container">
    <h1>Bem-vindo!</h1>
    <p>Cadastre seu número de celular e escolha um usuário para continuar</p>
-   <form class="contact-form" [formGroup]="contactForm">
+   <form class="contact-form">
     <label>Nome de Usuário:</label>
-    <input type="text" formControlName="username" name="username" [(ngModel)]="username">
+    <input type="text"  name="username" [(ngModel)]="username">
     <label>Número de celular:</label>
-    <input type="text" formControlName="userphone" name="userphone" [(ngModel)]="userphone">
+    <input type="text" name="userphone" [(ngModel)]="userphone">
     <button class="btn-contact-register" >Continuar</button>
    </form>
   </div>

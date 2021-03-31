@@ -24,3 +24,45 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+*{
+    outline: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    height: 100vh;
+}
+
+ion-toolbar{
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --background: #4d4c4c;
+
+    ion-title{
+        font-size: 12pt;
+        font-weight: bold;
+        color: #0edd9f;
+    }
+}
+
+ion-content{
+    --background: #222;
+}
+
+
+.modal-add{
+    width: 100%;
+    padding: 20px;
+}
+
+.modal-add .modal-wrapper{
+    height: 350px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #333333;
+}

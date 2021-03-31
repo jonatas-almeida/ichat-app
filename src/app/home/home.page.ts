@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ModalAddPage } from '../components/modal-add/modal-add.page';
 import { Contacts } from '../interfaces/Contacts';
 import { ChatService } from '../services/chat.service';
 
@@ -11,15 +13,25 @@ import { ChatService } from '../services/chat.service';
 })
 export class HomePage {
 
-  contacts: any;
+  contacts: any = [];
   username: string;
   userphone:string;
-  contactForm: FormGroup;
 
-  constructor(private router: Router, private chatService: ChatService, private formBuilder: FormBuilder) {}
+  constructor(private router: Router, private chatService: ChatService, private formBuilder: FormBuilder, private modalService: ModalController) {}
 
   ngOnInit(){
     this.getContacts();
+  }
+
+  //Abre o modal de adicionar contatos
+  async openAddModal(){
+    const modal = this.modalService.create({
+      component: ModalAddPage,
+      cssClass: 'modal-add'
+    });
+
+    return (await modal).present();
+    
   }
 
   //Lista todos os contatos
@@ -27,22 +39,13 @@ export class HomePage {
     this.chatService.getContacts().subscribe(
       (response) => {
         this.contacts = response;
-        console.log(response);
+      }, error => {
+        const erro = error.error;
+        console.log(erro);
       }
     )
   }
 
-  //Registra um usuário de início
-  addContact(){
-    if(this.contactForm.valid){
-      this.contacts = Object.assign({}, this.contactForm.value);
-
-      this.chatService.postContacts(this.contacts).subscribe(
-        () => {
-          alert("Usuário cadastrado com sucesso!");
-        }
-      )
-    }
-  }
+  
 
 }

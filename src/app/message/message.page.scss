@@ -1,0 +1,86 @@
+ion-back-button{
+    color: white;
+}
+
+.message-content{
+    width: 100%;
+    height: 100%;
+
+    .message-card{
+        width: 250px;
+        height: auto;
+        padding: 10px;
+        background: #585858;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        margin: 20px;
+
+        .message-info{
+            display: flex;
+            align-items: center;
+
+            .profile-pic{
+                width: 26px;
+                height: 26px;
+                background: #222;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+        }
+
+        h3{
+            font-size: 11pt;
+            font-weight: bold;
+            color: #0edd9f;
+        }
+
+        p{
+            font-size: 10pt;
+            font-weight: bold;
+            color: white;
+            margin: 10px 0px;
+        }
+    }
+
+}
+
+.message-wrapper-bar{
+    width: 100%;
+    padding: 20px;
+    background: #4d4c4c;
+    position: fixed;
+    bottom: 0px;
+
+    .send-form{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        input{
+            width: 280px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+        }
+
+        button{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: all .2s;
+            background: #0edd9f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #222;
+            transition: all .2s;
+        }
+
+        button:active{
+            transform: scale(0.9);
+        }
+    }
+
+}

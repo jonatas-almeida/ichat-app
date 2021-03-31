@@ -1,0 +1,20 @@
+
+  <ion-content [fullscreen]="true">
+    <div class="modal-container">
+      <div class="modal-content">
+        <div class="modal-wrapper">
+          <div class="modal-header">
+            <h1>Novo contato</h1>
+            <div class="btn-close">
+              <ion-icon name="close" (click)="closeModal()"></ion-icon>
+            </div>
+          </div>
+          <form class="contact-form" [formGroup]="contactForm">
+            <input type="text" placeholder="Nome do contato" formControlName="contact_name" name="contact_name">
+            <input type="text" placeholder="Número do contato" formControlName="contact_number" name="contact_number">
+            <button type="submit" class="btn-contact" (click)="registerContact()">Adicionar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ion-content>
