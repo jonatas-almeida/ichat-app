@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button href="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Message</ion-title>
+    <ion-title>{{contact.contact_name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,10 +14,10 @@
       <div class="message-card">
         <div class="message-info">
           <div class="profile-pic"></div>
-          <h3>User Name</h3>
+          <h3>{{user}}</h3>
         </div>
-        <div class="message-content">
-          <p>Sua mensagem aqui</p>
+        <div class="message-content" *ngFor="let message of message">
+          <p>{{message.send_message}}</p>
         </div>
       </div>
     </div>
@@ -25,9 +25,9 @@
 
   <div class="message-wrapper-bar">
     <div class="message-wrapper">
-      <form class="send-form">
-        <input type="text" placeholder="Digite aqui...">
-        <button class="btn-send">
+      <form class="send-form" [formGroup]="sendForm">
+        <input type="text" placeholder="Digite aqui..." formControlName="send_message" name="send_message"  [ngModel]="cleanMessage">
+        <button class="btn-send" (click)="sendMessages()">
           <ion-icon name="send"></ion-icon>
         </button>
       </form>

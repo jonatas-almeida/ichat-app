@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ModalAddPage } from '../components/modal-add/modal-add.page';
 import { Contacts } from '../interfaces/Contacts';
@@ -29,9 +29,7 @@ export class HomePage {
       component: ModalAddPage,
       cssClass: 'modal-add'
     });
-
     return (await modal).present();
-    
   }
 
   //Lista todos os contatos
@@ -42,6 +40,16 @@ export class HomePage {
       }, error => {
         const erro = error.error;
         console.log(erro);
+      }
+    )
+  }
+
+
+  deleteContact(id: any){
+    this.chatService.deleteContacts(id).subscribe(
+      () => {
+        console.log('Contato deletado');
+        this.getContacts();
       }
     )
   }

@@ -35,17 +35,18 @@ export class ModalAddPage implements OnInit {
       contact_number: ['', Validators.required]
     })
   }
-
+  
+  
   //Registra um usuário de início
   registerContact(){
       this.contact = Object.assign({}, this.contactForm.value);
 
       this.chatService.postContacts(this.contact).subscribe(
-        (novoContato: Contacts) => {
-          console.log(novoContato);
-          alert("Contato cadastrado!");
+        () => {
+          console.log("Contato cadastrado!");
           this.router.navigateByUrl('/home');
           this.closeModal();
+          window.location.reload();
         }
       )
   }

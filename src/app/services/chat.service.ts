@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Contacts } from '../interfaces/Contacts';
 import { Favorites } from '../interfaces/Favorites';
 import { Messages } from '../interfaces/Messages';
+import { Users } from '../interfaces/Users';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,7 @@ export class ChatService {
     return this.http.post(`${this.baseUrl}/messages`, message);
   }
 
+
   //Deleta a mensagem
   deleteMessage(id: number){
     return this.http.delete(`${this.baseUrl}/messages/${id}`);
@@ -34,6 +36,11 @@ export class ChatService {
   //Pega os contatos adicionados
   getContacts(): Observable<any>{
     return this.http.get<any>(`${this.baseUrl}/contacts`);
+  }
+
+  //Pega o contato específico
+  getContact(id: number){
+    return this.http.get(`${this.baseUrl}/contacts/${id}`);
   }
 
   //Salva os contatos para serem acessados posteriormente
