@@ -1,9 +1,49 @@
-.btn-contact-register{
-    width: 120px;
-    padding: 10px;
-    background: #277ada;
-    color: white;
-    font-size: 12pt;
+.login-container{
+  padding: 20px;
+
+  h1{
+    font-size: 30pt;
     font-weight: bold;
-    border-radius: 5px;
+    color: #0edd9f;
   }
+
+  p{
+    font-size: 11pt;
+    margin-bottom: 30px;
+  }
+
+  .contact-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25%;
+
+    label{
+      font-size: 12pt;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #0edd9f;
+    }
+
+    input{
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 30px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .btn-contact-register{
+      width: 100%;
+      padding: 15px;
+      background: #0edd9f;
+      color: white;
+      font-size: 12pt;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 30px;
+    }
+
+  }
+
+}

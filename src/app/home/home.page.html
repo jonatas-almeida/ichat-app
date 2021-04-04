@@ -13,8 +13,9 @@
       <!--Header de boas-vindas-->
       <div class="home-header">
         <div class="home-header-content">
-          <h1>Olá Jonatas!</h1>
+          <h1>Olá {{localUser}}!</h1>
           <p>Bem-vindo ao IChat</p>
+          <app-menu></app-menu>
         </div>
       </div>
 
@@ -27,12 +28,10 @@
         </div>
 
         <!--Quando tiver contatos cadastrados eles apareceram aqui-->
+        <h1>Conversas</h1>
         <div class="contact-card" *ngFor="let contact of contacts" routerLink="/message/{{contact.id}}">
           <div class="contact-profile"></div>
           <h3>{{contact.contact_name}}</h3>
-          <button class="btn-delete" (click)="deleteContact(contact.id)">
-            <ion-icon name="trash"></ion-icon>
-          </button>
         </div>
       </div>
     </div>

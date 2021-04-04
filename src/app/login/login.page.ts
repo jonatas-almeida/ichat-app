@@ -19,6 +19,9 @@ export class LoginPage implements OnInit {
 
   ngOnInit(){
     this.validation();
+    if(localStorage.getItem('username') && localStorage.getItem('userphone')){
+      this.router.navigateByUrl('/home');
+    }
   }
 
   validation(){
@@ -28,14 +31,12 @@ export class LoginPage implements OnInit {
     });
   }
 
+  //Adiciona o usuário localmente
   localLogin(){
-    if(this.contactForm.valid){
-      localStorage.setItem('user', this.username);
-      localStorage.setItem('user', this.userphone);
-    }
-    else{
-      alert("O preenchimento de ambos os campos são obrigatórios!");
-    }
+    localStorage.setItem('username', this.username);
+    localStorage.setItem('userphone', this.userphone);
+    window.location.reload();
+    this.router.navigateByUrl('/home');
   }
 
 }

@@ -1,14 +1,6 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      IChat
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
 
-  <div id="container">
+  <div class="login-container">
    <h1>Bem-vindo!</h1>
    <p>Cadastre seu número de celular e escolha um usuário para continuar</p>
    <form class="contact-form">
@@ -16,7 +8,7 @@
     <input type="text"  name="username" [(ngModel)]="username">
     <label>Número de celular:</label>
     <input type="text" name="userphone" [(ngModel)]="userphone">
-    <button class="btn-contact-register" >Continuar</button>
+    <button class="btn-contact-register" (click)="localLogin()" >Continuar</button>
    </form>
   </div>
 </ion-content>

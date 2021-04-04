@@ -14,12 +14,14 @@ import { ChatService } from '../services/chat.service';
 export class HomePage {
 
   contacts: any = [];
+  localUser: any;
   username: string;
   userphone:string;
 
   constructor(private router: Router, private chatService: ChatService, private formBuilder: FormBuilder, private modalService: ModalController) {}
 
   ngOnInit(){
+    this.getLocalUser();
     this.getContacts();
   }
 
@@ -30,6 +32,17 @@ export class HomePage {
       cssClass: 'modal-add'
     });
     return (await modal).present();
+  }
+
+
+  //Verifica se existe um usuário local cadastrado, caso contrário ele volta para a tela de login
+  getLocalUser(){
+    if(localStorage.getItem('username') && localStorage.getItem('userphone')){
+      this.localUser = localStorage.getItem('username');
+    }
+    else{
+      this.router.navigateByUrl('/login');
+    }
   }
 
   //Lista todos os contatos
@@ -44,7 +57,7 @@ export class HomePage {
     )
   }
 
-
+  //Deleta o contato
   deleteContact(id: any){
     this.chatService.deleteContacts(id).subscribe(
       () => {
