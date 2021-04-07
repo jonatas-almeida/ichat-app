@@ -55,6 +55,7 @@ export class MessagePage implements OnInit {
     this.chatService.getMessages().subscribe(
       (res) => {
         this.message = res;
+        console.log(res);
       }
     )
   }
